@@ -1,0 +1,21 @@
+<p>news works!</p>
+
+<h2>{{ title }}</h2>
+
+<ul *ngFor="let item of arr">
+  <li>{{ item }}</li>
+</ul>
+
+<div *ngIf="true"></div>
+
+<!-- <div [ngSwitch]="conditionExpression">
+  <div *ngSwitchCase="expression">output</div>
+  <div *ngSwitchDefault>output2</div>
+</div> -->
+
+// 动态改变样式
+<div [ngClass]="{ red: flag, blue: !flag }">文字</div>
+
+<div [ngStyle]="{ color: 'red' }">1</div>
+
+<!-- [(ngModel)]="binding" -->
