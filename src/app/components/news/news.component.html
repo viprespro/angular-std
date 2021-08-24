@@ -19,3 +19,18 @@
 <div [ngStyle]="{ color: 'red' }">1</div>
 
 <!-- [(ngModel)]="binding" -->
+
+<div>
+  <ul>
+    <li *ngFor="let item of listFromServe">
+      <span>{{ item.title }}</span>
+      <ul>
+        <li *ngFor="let innerItem of item.list">{{ innerItem.title }}</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<input type="text" placeholder="输入你要提交的数据" />
+
+<button type="button" (click)="doPost()">post提交数据</button>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-news',
@@ -17,9 +18,36 @@ export class NewsComponent implements OnInit {
 
   public flag: boolean = false;
 
-  constructor() {}
+  public listFromServe: any[] = [];
 
-  ngOnInit(): void {}
+  constructor(public http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.fetchData();
+  }
 
   ngAfterViewInit(): void {}
+
+  // http request.
+  fetchData() {
+    const api = 'http://a.itying.com/api/productlist';
+    // rxjs
+    this.http.get(api).subscribe(({ result }: any) => {
+      console.log('result:', result);
+      this.listFromServe = result;
+    });
+  }
+
+  doPost() {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    const postApi = '';
+    this.http
+      .post(postApi, { username: 'ares' }, httpOptions)
+      .subscribe((res) => {
+        console.log('res:', res);
+      });
+    console.log(123);
+  }
 }

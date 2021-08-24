@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 // 浏览器解析模块
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 // 根组件
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { HomeComponent } from './components/home/home.component';
   imports: [
     BrowserModule, // 项目所需的服务
     FormsModule,
+    HttpClientModule,
   ],
   providers: [], // 项目需要的服务
   bootstrap: [AppComponent], // 指定应用的主视图 通过引导AppModule来启动应用 一般写根组件
